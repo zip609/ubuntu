@@ -53,7 +53,7 @@ function add_ssh_key() {
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
     fi
-    wget https://raw.githubusercontent.com/zip609/ubuntu/main/basic.sh -O - 2>&1 | tee -a ~/.ssh/authorized_keys
+    wget https://raw.githubusercontent.com/zip609/ubuntu/main/basic.sh -O - >> ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
 }
 

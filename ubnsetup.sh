@@ -2,7 +2,7 @@
 
 # Красивый ASCII баннер
 echo -e "\e[34mIP address:\e[0m \e[93m$(hostname -I | awk '{print $1}')\e[0m"
-echo -e "\e[34mMask:\e[0m \e[93m$(ifconfig $(ip route | grep default | awk '{print $5}') | grep netmask | awk '{print $4}')\e[0m"
+echo -e "\e[34mMask:\e[0m \e[93m$(ip -o -f inet addr show $(ip route | grep default | awk '{print $5}') | awk '{print $4}' | cut -d/ -f2)\e[0m"
 echo -e "\e[34mGate:\e[0m \e[93m$(ip route | grep default | awk '{print $3}')\e[0m"
 echo -e "\e[34mDNS:\e[0m \e[93m$(systemd-resolve --status | grep 'DNS Servers' | awk '{print $3}')\e[0m"
 echo -e "\e[34mHostname:\e[0m \e[93m$(hostname)\e[0m"
